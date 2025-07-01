@@ -1,7 +1,7 @@
 data "terraform_remote_state" "networking" {
   backend = "s3"
   config = {
-    bucket = "terraform-dann-eks-201815243" 
+    bucket = "<bucket_name>" 
     key    = "workspaces/${terraform.workspace}/networking/terraform.tfstate"
     region = var.region
   }
