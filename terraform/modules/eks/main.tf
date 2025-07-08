@@ -2,8 +2,8 @@
 data "aws_caller_identity" "current" {}
 
 locals {
-  cluster_role_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/c168452a4335934l10727861t1w499798-LabEksClusterRole-F81vVV0egFFS"
-  node_role_arn    = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/c168452a4335934l10727861t1w499798121-LabEksNodeRole-IG3U707UgTjV"
+  cluster_role_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/<LabEksClusterRole>"
+  node_role_arn    = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/<LabEksNodeRole>"
   admin_role_arn   = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/LabRole"
 }
 
