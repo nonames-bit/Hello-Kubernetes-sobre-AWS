@@ -195,10 +195,9 @@ cython_debug/
 
 # Terraform
 .terraform/
-.terraform.lock.hcl
 *.tfplan
-*.tfstate
-*.tfstate.*
+*.tfstate.lock.*
+*.tfstate.backup
 crash.log
 crash.*.log
 .terraformrc
@@ -207,5 +206,3 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
-.terraform/modules
-.terraform/plugins

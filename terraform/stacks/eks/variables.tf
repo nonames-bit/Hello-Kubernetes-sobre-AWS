@@ -1,7 +1,7 @@
 variable "region" { 
   description = "La región de AWS donde se desplegarán los recursos."
   type        = string
-  default = "us-east-1"
+  nullable    = false
 }
 
 variable "cluster_name" {
@@ -14,12 +14,13 @@ variable "cluster_version" {
   type        = string
 }
 
-variable "tags" {
-  description = "Un mapa de etiquetas para aplicar a los recursos del clúster EKS."
-  type        = map(string)
-}
-
 variable "cluster_endpoint_public_access" {
   description = "Habilita o deshabilita el acceso público al endpoint del clúster EKS."
   type        = bool
+}
+
+variable "owner" {
+  description = "Dueño de los recursos. Para propósito acadmémico."
+  type        = string
+  nullable    = false
 }

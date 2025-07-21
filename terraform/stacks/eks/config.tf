@@ -3,7 +3,7 @@ provider "aws" {
   default_tags {
     tags = {
       "terraform" : true,
-      "author" : terraform.workspace
+      "owner" : var.owner,
     }
   }
 }
@@ -16,11 +16,5 @@ terraform {
       version = "~> 5"
     }
   }
-  backend "s3" {
-    bucket               = var.state_bucket
-    key                  = var.state_key
-    region               = var.region
-    workspace_key_prefix = "workspaces"
-    encrypt              = true
-  }
+  backend "local" {}
 }
