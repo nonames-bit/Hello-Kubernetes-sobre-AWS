@@ -3,7 +3,7 @@ module "eks_cluster" {
   version = "~> 18.31"             
 
   cluster_name    = var.cluster_name       
-  cluster_version = var.cluster_version    
+  cluster_version = var.k8s_cluster_version    
   vpc_id          = data.aws_vpc.default.id
   subnet_ids      = data.aws_subnets.all.ids
 
@@ -16,11 +16,11 @@ module "eks_cluster" {
     default = {
       create_iam_role = false
       iam_role_arn    = tolist(data.aws_iam_roles.eks_node.arns)[0]
-      ami_type       = "AL2023_x86_64_STANDARD"
-      instance_types = ["t3.medium"]
-      desired_size   = 1
-      min_size       = 1
-      max_size       = 3
+      ami_type       = "AL2023_x86_64_STANDARD" # Si esto se podrá modificar convierta esto en una variable
+      instance_types = ["t3.medium"] # Si esto se podrá modificar convierta esto en una variable
+      desired_size   = 1 # Si esto se podrá modificar convierta esto en una variable
+      min_size       = 1 # Si esto se podrá modificar convierta esto en una variable
+      max_size       = 3 # Si esto se podrá modificar convierta esto en una variable
     }
   }
 
