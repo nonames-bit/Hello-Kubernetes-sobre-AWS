@@ -198,6 +198,7 @@ cython_debug/
 *.tfplan
 *.tfstate.lock.*
 *.tfstate.backup
+*.tfstate
 crash.log
 crash.*.log
 .terraformrc

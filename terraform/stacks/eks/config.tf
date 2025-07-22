@@ -16,5 +16,5 @@ terraform {
       version = "~> 5"
     }
   }
-  backend "local" {}
+  backend "s3" {}
 }
