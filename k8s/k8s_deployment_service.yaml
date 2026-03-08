@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: suma
+  labels:
+    app: suma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: suma
+  template:
+    metadata:
+      labels:
+        app: suma
+    spec:
+      containers:
+        - name: suma
+          image: 621000620703.dkr.ecr.us-east-1.amazonaws.com/calculadora/suma:1.0.0
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 4000
+          imagePullPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: servicio-suma
+spec:
+  type: LoadBalancer
+  selector:
+    app: suma
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
